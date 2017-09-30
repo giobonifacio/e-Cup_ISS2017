@@ -1,4 +1,4 @@
-package bean;
+package com.model;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,28 +11,33 @@ package bean;
  * @author Giovane
  */
 import java.io.Serializable;
+import java.math.BigInteger;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
    
 @Entity
+@Table
 public class Usuario implements Serializable {
        
     @Id
-    private int id;
+    @GeneratedValue
+    private BigInteger id;
     private String usuario;
     private String senha;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public BigInteger getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
