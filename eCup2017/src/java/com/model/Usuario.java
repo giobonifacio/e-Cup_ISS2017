@@ -12,32 +12,38 @@ package com.model;
  */
 import java.io.Serializable;
 import java.math.BigInteger;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
    
 @Entity
-@Table
+@Table(name = "usuario")  
 public class Usuario implements Serializable {
        
-    @Id
-    @GeneratedValue
-    private BigInteger id;
+    
+    @Id  
+    @GeneratedValue(strategy=GenerationType.AUTO)    
+    @Column(name = "id") 
+    private Integer id;
+    @Column(name = "usuario") 
     private String usuario;
+    @Column(name = "senha") 
     private String senha;
 
     /**
      * @return the id
      */
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(BigInteger id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
