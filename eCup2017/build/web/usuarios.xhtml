@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoad}"/>
+    </f:metadata>
+    <h:head>
+        <title>e-Cup 2017</title>
+    </h:head>
+    <h:body>
+    	<h2>Controle de Usuários</h2>
+            
+        <h:form>
+            <h:panelGrid columns="6" cellpadding="5">
+                <p:commandButton value="Editar" action="#{usuarioMBean.goToPageEditarUsuario()}" icon="ui-icon-check" />
+                 <p:commandButton value="Remover" action="#{usuarioMBean.goToPageRemoverUsuario()}" icon="ui-icon-check" />
+                <p:commandButton value="Criar" action="#{usuarioMBean.goToPageCriarUsuario()}" icon="ui-icon-check"/>         
+            </h:panelGrid>
+            <br/> <br/> <br/>
+            <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
+        </h:form>
+    </h:body>
+  
+</html>

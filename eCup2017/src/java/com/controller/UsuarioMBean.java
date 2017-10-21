@@ -39,15 +39,32 @@ public class UsuarioMBean implements Serializable{
     }
       
     public String criar()  {
-        if (!Utils.isNullOrEmpty(usuario.getUsuario()) && Utils.isNullOrEmpty(usuario.getSenha())) {
-            try {
+        if (Utils.isNullOrEmpty(usuario.getUsuario()) || Utils.isNullOrEmpty(usuario.getSenha())) {
+            return "erro";
+        }
+        
+         try {
                 usuarioDAO.salvar(usuario);
+                return "login";
             } catch (Exception e) {
                 System.err.println("Não foi possível inserir usuário." + e);
             }
-        }
-        
-        return "usuarioCriado";
+       return "erro";
     }
-            
+       
+    public String goToPageCriarUsuario() {
+        return "criarUsuario";
+    }
+    
+    public String goToPageRemoverUsuario() {
+        return "excluirUsuario";
+    }
+    
+    public String goToPageEditarUsuario() {
+        return "editarUsuario";
+    }
+    
+    public String goToPageControleUsuario() {
+    return "usuarios";
+    }
 }

@@ -41,7 +41,7 @@ public class LoginMBean implements Serializable{
         List<Usuario> listUsuarios = usuarioDAO.listAll();
         for (Usuario user : listUsuarios) {
             if (user.getSenha().equals(usuario.getSenha()) && user.getUsuario().equals(usuario.getUsuario()))
-                return "loginRealizado";
+                return "index";
         }
         return "naoAutenticado";
     }

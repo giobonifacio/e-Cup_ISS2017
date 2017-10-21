@@ -10,7 +10,7 @@
         <title>e-Cup 2017</title>
     </h:head>
     <h:body>
-    	<h2>Efetue login para acessar e-Cup 2017</h2>
+    	<h3>Efetue login para acessar e-Cup 2017</h3>
             
         <h:form>
             <h:panelGrid columns="6" cellpadding="5">
@@ -21,7 +21,11 @@
                 <p:commandButton value="Logar" action="#{loginMBean.logar()}" icon="ui-icon-check" />
                 <h:outputText id="display" value="#{basicView.text}" />
             </h:panelGrid>
+            
+                    
+        <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
         </h:form>
+
     </h:body>
   
 </html>
