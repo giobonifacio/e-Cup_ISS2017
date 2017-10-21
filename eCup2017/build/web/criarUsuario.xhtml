@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoad}"/>
+    </f:metadata>
+    <h:head>
+        <title>e-Cup 2017</title>
+    </h:head>
+    <h:body>
+    	<h2>Informe os dados do Usuário que deseja criar para acessar e-Cup 2017</h2>
+            
+        <h:form>
+            <h:panelGrid columns="6" cellpadding="5">
+                <h:outputLabel for="inputUsuario" value="Usuário:" style="font-weight:bold" />
+                <p:inputText id="inputUsuario" value="#{usuarioMBean.usuario.usuario}" />
+                <h:outputLabel for="inputSenha" value="Senha:" style="font-weight:bold" />
+                <p:inputText id="inputSenha" value="#{usuarioMBean.usuario.senha}" />
+                <p:commandButton value="Criar" action="#{usuarioMBean.criar()}" icon="ui-icon-check" />
+                <h:outputText id="display" value="#{basicView.text}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+  
+</html>

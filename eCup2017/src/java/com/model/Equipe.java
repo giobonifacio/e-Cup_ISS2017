@@ -1,15 +1,14 @@
-package com.model;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package com.model;
 /**
  *
- * @author Giovane
+ * @author Ricardo
  */
+
 import java.io.Serializable;
 import java.math.BigInteger;
 import javax.persistence.Column;
@@ -20,18 +19,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
    
 @Entity
-@Table(name = "usuario")  
-public class Usuario implements Serializable {
-       
-    
+@Table(name = "equipe")  
+public class Equipe implements Serializable{
     @Id  
     @GeneratedValue(strategy=GenerationType.AUTO)    
     @Column(name = "id") 
     private Integer id;
-    @Column(name = "usuario") 
-    private String usuario;
-    @Column(name = "senha") 
-    private String senha;
+    @Column(name = "nome") 
+    private String nome;
+    @Column(name = "modalidade") 
+    private String modalidade;
 
     /**
      * @return the id
@@ -48,31 +45,33 @@ public class Usuario implements Serializable {
     }
 
     /**
-     * @return the usuario
+     * @return the nome
      */
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param usuario the usuario to set
+     * @param nome the nome to set
      */
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
-     * @return the senha
+     * @return the modalidade
      */
-    public String getSenha() {
-        return senha;
+    public String getModalidade() {
+        return modalidade;
     }
 
     /**
-     * @param senha the senha to set
+     * @param modalidade the modalidade to set
      */
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setModalidade(String modalidade) {
+        this.modalidade = modalidade;
     }
     
+    
+
 }

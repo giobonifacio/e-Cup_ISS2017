@@ -67,7 +67,7 @@ public class GenericDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public T buscarPorCodigo(BigInteger codigo) {
+	public T buscarPorCodigo(Integer codigo) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transacao = null;
 		try {

@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.model;
+package com.util;
 
 /**
  *
- * @author Giovane
+ * @author guest-oa6zty
  */
-
-import javax.persistence.*;  
-  
-@Entity  
-@DiscriminatorValue("tecnico") 
-public class Tecnico extends IntegranteEquipe{
-    
+public class Utils {
+    public static boolean isNullOrEmpty(String str) {
+        return str == null || str.trim().equals("");
+    }
 }
