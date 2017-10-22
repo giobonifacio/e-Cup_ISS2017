@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<navigation-rule>
+     <from-view-id>*</from-view-id>
+     <navigation-case>
+        <from-outcome>erro</from-outcome>
+        <to-view-id>erro.xhtml</to-view-id>
+    </navigation-case>
+    
+    
+    <from-view-id>login.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>index</from-outcome>
+        <to-view-id>index.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>criarUsuario</from-outcome>
+        <to-view-id>criarUsuario.xhtml</to-view-id>
+    </navigation-case>
+    
+    <from-view-id>index.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>usuarios</from-outcome>
+        <to-view-id>usuarios.xhtml</to-view-id>
+    </navigation-case>
+    
+    <from-view-id>usuarios.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>criaUsuarios</from-outcome>
+        <to-view-id>criarUsuario.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>editarUsuario</from-outcome>
+        <to-view-id>editarUsuario.xhtml</to-view-id>
+    </navigation-case>
+     <navigation-case>
+        <from-outcome>excluirUsuario</from-outcome>
+        <to-view-id>excluirUsuario.xhtml</to-view-id>
+    </navigation-case>
+    
+ 
+</navigation-rule>
+</faces-config>
