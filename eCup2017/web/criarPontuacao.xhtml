@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2>Informe os dados da pontuação que deseja cadastrar</h2>
+        
+        <h:form>
+            <p:outputLabel for="inputPonto" value="Pontuações:" />
+            <h:panelGrid columns="2" style="margin-bottom:15px" cellpadding="5"> 
+                
+                <p:selectOneRadio id="inputPonto" value="#{pontoMbean.ponto.descricao}"   layout="grid" columns="1"  >
+                    <f:selectItem itemLabel="Gol" itemValue="Gol"  ></f:selectItem> 
+                    <f:selectItem itemLabel="7 Metros" itemValue="7Metros" ></f:selectItem> 
+                    <f:selectItem itemLabel="Penalti" itemValue="Penalti" ></f:selectItem> 
+                    <f:selectItem itemLabel="Dentro do Garrafão" itemValue="DentroGarrafao" ></f:selectItem>
+                    <f:selectItem itemLabel="Fora do Garrafão" itemValue="ForaGarrafao"></f:selectItem>
+                    <f:selectItem itemLabel="Lance Livre" itemValue="LanceLivre" ></f:selectItem>
+                    <f:selectItem itemLabel="Corte" itemValue="Corte" ></f:selectItem>
+                    <f:selectItem itemLabel="Ace" itemValue="Ace" ></f:selectItem>
+                </p:selectOneRadio>
+                
+                
+                <h:panelGrid columns="1">
+                    <p:spinner size="2" min="0" max="100"></p:spinner> 
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                    <p:spinner size="2" min="0" max="100"></p:spinner>
+                </h:panelGrid>
+                                   
+            </h:panelGrid>
+            
+            <p:commandButton value="Cadastrar" action="#{pontoMBean.criar()}" icon="ui-icon-check" />
+            <h:outputText id="display" value="#{basicView.text}" />
+        </h:form>        
+    
+             
+    </h:body>
+</html>
+
