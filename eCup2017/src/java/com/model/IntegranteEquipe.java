@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package com.model;
-
-/**
- *
- * @author Giovane
- */
-
 import javax.persistence.*;  
   
 @Entity  
-@DiscriminatorValue("jogador")  
-public class Jogador extends IntegranteEquipe{
+public abstract class IntegranteEquipe extends Pessoa{
+    
 
-    @Column(name = "numeracao")  
-    private Integer numeracao ;
+    @Column(name = "equipe")  
+    @ManyToOne
+    private Equipe equipe;    
+    @Column(name = "funcao")  
+    private String funcao;
     
     
     
 }
+
+/**
+ *
+ * @author Ricardo
+ */
+

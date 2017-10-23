@@ -14,6 +14,6 @@ import javax.persistence.*;
   
 @Entity  
 @DiscriminatorValue("tecnico") 
-public class Tecnico extends Pessoa{
+public class Tecnico extends IntegranteEquipe{
     
 }

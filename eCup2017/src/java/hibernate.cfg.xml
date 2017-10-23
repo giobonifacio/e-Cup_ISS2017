@@ -48,7 +48,7 @@ Contributor(s):
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create-drop</property>
                 
                 <mapping class="com.model.Usuario" />
                 <mapping class="com.model.Pessoa" />
@@ -60,6 +60,8 @@ Contributor(s):
                 <mapping class="com.model.Jogador" />
                 <mapping class="com.model.Representante" />
                 <mapping class="com.model.Tecnico" />
+                <mapping class="com.model.Tempo" />
+                <mapping class="com.model.Equipe" />
                 
 	</session-factory>
 </hibernate-configuration>

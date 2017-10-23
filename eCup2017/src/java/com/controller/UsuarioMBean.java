@@ -67,6 +67,19 @@ public class UsuarioMBean implements Serializable{
        return "erro";
     }
     
+    public String goToPageRemoverUsuario() {
+        return "excluirUsuario";
+    }
+    
+    public String goToPageEditarUsuario() {
+        return "editarUsuario";
+    }
+    
+    public String goToPageControleUsuario() {
+    return "usuarios";
+    }
+
+    
     public void carregaListaUsuarios() {
         setUsuarios(usuarioDAO.listAll());
     }
@@ -86,10 +99,6 @@ public class UsuarioMBean implements Serializable{
         return "criarUsuario";
     }
         
-    public String goToPageControleUsuario() {
-    return "usuarios";
-    }
-
     /**
      * @return the usuarios
      */
