@@ -4,20 +4,41 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:metadata>
-        <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoad}"/>
+        <f:event type="preRenderView" listener="#{usuarioMBean.carregaListaUsuarios}"/>
     </f:metadata>
     <h:head>
         <title>e-Cup 2017</title>
     </h:head>
     <h:body>
-    	<h2>Controle de Usuários</h2>
-            
         <h:form>
-            <h:panelGrid columns="6" cellpadding="5">
-                <p:commandButton value="Editar" action="#{usuarioMBean.goToPageEditarUsuario()}" icon="ui-icon-check" />
-                 <p:commandButton value="Remover" action="#{usuarioMBean.goToPageRemoverUsuario()}" icon="ui-icon-check" />
-                <p:commandButton value="Criar" action="#{usuarioMBean.goToPageCriarUsuario()}" icon="ui-icon-check"/>         
-            </h:panelGrid>
+    	   <p:dataTable id="dataTableUsers" var="user" value="#{usuarioMBean.usuarios}"  style="margin-bottom:20px">
+                    <f:facet name="header">
+                        Controle de Usuários
+                    </f:facet>
+
+                    <p:column headerText="Id">
+                        <h:outputText value="#{user.id}" />
+                    </p:column>
+
+                    <p:column headerText="Usuário">
+                        <h:outputText value="#{user.usuario}" />
+                    </p:column>
+
+                    <p:column headerText="Senha">
+                        <h:outputText value="#{user.senha}" />
+                    </p:column>
+
+                    <p:column style="width:92px">
+                       <p:commandButton id="editUsuario" value="Editar" action="#{usuarioMBean.goToPageEditarUsuario(user)}" />
+                    </p:column>
+                    
+                     <p:column style="width:120px">
+                         <f:ajax>
+                              <p:commandButton id="removeUsuario" value="Remover" action="#{usuarioMBean.removeUsuario(user)}" />
+                         </f:ajax>
+                    </p:column>
+                </p:dataTable>
+            <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
             <br/> <br/> <br/>
             <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
         </h:form>

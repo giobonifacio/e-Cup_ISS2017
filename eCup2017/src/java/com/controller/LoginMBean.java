@@ -43,7 +43,7 @@ public class LoginMBean implements Serializable{
             if (user.getSenha().equals(usuario.getSenha()) && user.getUsuario().equals(usuario.getUsuario()))
                 return "index";
         }
-        return "naoAutenticado";
+        return "erro";
     }
             
 }

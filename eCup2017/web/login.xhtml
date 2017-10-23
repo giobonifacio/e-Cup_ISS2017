@@ -16,8 +16,7 @@
             <h:panelGrid columns="6" cellpadding="5">
                 <h:outputLabel for="inputUsuario" value="Usuário:" style="font-weight:bold" />
                 <p:inputText id="inputUsuario" value="#{loginMBean.usuario.usuario}" />
-                <h:outputLabel for="inputSenha" value="Senha:" style="font-weight:bold" />
-                <p:inputText id="inputSenha" value="#{loginMBean.usuario.senha}" />
+                <p:password id="inputSenha" value="#{loginMBean.usuario.senha}"  />
                 <p:commandButton value="Logar" action="#{loginMBean.logar()}" icon="ui-icon-check" />
                 <h:outputText id="display" value="#{basicView.text}" />
             </h:panelGrid>

@@ -3,11 +3,13 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>USUARIO NÃO AUTENTICADO</title>
+        <title>ERRO</title>
     </h:head>
     <h:body>
-       Olá Mundo
+        <h:form>
+               Usuário não autenticado! Tente novamente!
     <br/>
-       <p:button value="Olá Mundo Primefaces"/>
+       <p:commandButton value="Ir para pagina de login" action="login" process="@this" icon="ui-icon-check" />
+        </h:form>
     </h:body>
 </html>
