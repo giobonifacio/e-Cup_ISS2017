@@ -53,10 +53,8 @@ public class GenericDAO<T> {
 		try {
 			transacao = session.beginTransaction();
 			Criteria consulta = session.createCriteria(classe);
-			List<T> result = new ArrayList<T>();
-			result = consulta.list();
 			transacao.commit();
-			return result;
+			return consulta.list();
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();

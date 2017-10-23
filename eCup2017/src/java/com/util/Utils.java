@@ -11,6 +11,6 @@ package com.util;
  */
 public class Utils {
     public static boolean isNullOrEmpty(String str) {
-        return str == null || str.trim().equals("");
+        return str == null || str.equals("");
     }
 }

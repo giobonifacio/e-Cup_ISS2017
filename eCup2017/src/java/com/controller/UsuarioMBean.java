@@ -1,76 +1,3 @@
-
-Save New Duplicate & Edit Just Text Twitter
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
 package com.controller;
 
 
@@ -78,6 +5,7 @@ import com.dao.UsuarioDAO;
 import com.model.Usuario;
 import com.util.Utils;
 import java.io.Serializable;
+import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -101,6 +29,7 @@ public class UsuarioMBean implements Serializable{
     private static final long serialVersionUID = 1L;
     private Usuario usuario;
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
+    private List<Usuario> usuarios = new ArrayList<>();
     
     
     public Usuario getUsuario() {
@@ -108,25 +37,34 @@ public class UsuarioMBean implements Serializable{
     }
     
     public void onPageLoad(){
+        carregaListaUsuarios();
         usuario = new Usuario();
     }
       
+    public void onPageLoadCriarUsuario() {
+        if (usuario == null) {
+             usuario = new Usuario();
+        }
+    }
+    
     public String criar()  {
         if (Utils.isNullOrEmpty(usuario.getUsuario()) || Utils.isNullOrEmpty(usuario.getSenha())) {
             return "erro";
         }
         
          try {
-                usuarioDAO.salvar(usuario);
-                return "login";
+                if (usuario.getId() == null) {
+                      usuarioDAO.salvar(usuario);
+                    return "login";
+                }
+                  
+                else
+                    usuarioDAO.alterar(usuario);
+                return goToPageControleUsuario();
             } catch (Exception e) {
                 System.err.println("Não foi possível inserir usuário." + e);
             }
        return "erro";
-    }
-       
-    public String goToPageCriarUsuario() {
-        return "criarUsuario";
     }
     
     public String goToPageRemoverUsuario() {
@@ -139,5 +77,47 @@ public class UsuarioMBean implements Serializable{
     
     public String goToPageControleUsuario() {
     return "usuarios";
+    }
+
+    
+    public void carregaListaUsuarios() {
+        setUsuarios(usuarioDAO.listAll());
+    }
+    
+    public String removeUsuario(Usuario user) {
+        usuarioDAO.excluir(user);
+        return goToPageControleUsuario();
+    }
+    
+    public String goToPageCriarUsuario() {
+        this.usuario = null;
+        return "criarUsuario";
+    }
+    
+    public String goToPageEditarUsuario(Usuario user) {
+        this.usuario = user;
+        return "criarUsuario";
+    }
+        
+    /**
+     * @return the usuarios
+     */
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
+    public String getLabelPagina() {
+        if (usuario.getId() == null) {
+            return "Criar novo usuário";
+        }
+        
+        return "Edite o usuário";
     }
 }

@@ -4,23 +4,25 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:metadata>
-        <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoad}"/>
+        <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoadCriarUsuario}"/>
     </f:metadata>
     <h:head>
         <title>e-Cup 2017</title>
     </h:head>
     <h:body>
-    	<h2>Informe os dados do Usuário que deseja criar para acessar e-Cup 2017</h2>
+    	<h2>  <h:outputLabel for="inputUsuario" value="#{usuarioMBean.labelPagina}" style="font-weight:bold" /></h2>
             
         <h:form>
             <h:panelGrid columns="6" cellpadding="5">
                 <h:outputLabel for="inputUsuario" value="Usuário:" style="font-weight:bold" />
                 <p:inputText id="inputUsuario" value="#{usuarioMBean.usuario.usuario}" />
                 <h:outputLabel for="inputSenha" value="Senha:" style="font-weight:bold" />
-                <p:inputText id="inputSenha" value="#{usuarioMBean.usuario.senha}" />
-                <p:commandButton value="Criar" action="#{usuarioMBean.criar()}" icon="ui-icon-check" />
+                 <p:password id="inputSenha" value="#{usuarioMBean.usuario.senha}" />
+                <p:commandButton value="Salvar" action="#{usuarioMBean.criar()}" icon="ui-icon-check" />
                 <h:outputText id="display" value="#{basicView.text}" />
             </h:panelGrid>
+            <br/> <br/> <br/>
+            <p:commandButton value="Voltar" action="#{usuarioMBean.goToPageControleUsuario()}" process="@this" icon="ui-icon-check" />
         </h:form>
     </h:body>
   
