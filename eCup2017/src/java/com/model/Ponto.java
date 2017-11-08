@@ -44,7 +44,7 @@ public class Ponto implements Serializable{
         return descricao;
     }
  
-    public void setDescricao(){
+    public void setDescricao(String descricao){
         this.descricao = descricao;
     }
 
