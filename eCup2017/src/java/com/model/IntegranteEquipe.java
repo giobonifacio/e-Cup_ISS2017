@@ -11,7 +11,6 @@ public abstract class IntegranteEquipe extends Pessoa{
     
 
     @Column(name = "equipe")  
-    @ManyToOne
     private Equipe equipe;    
     @Column(name = "funcao")  
     private String funcao;
