@@ -7,11 +7,52 @@
         <f:event type="preRenderView" listener="#{usuarioMBean.onPageLoad}"/>
     </f:metadata>
     <h:head>
+        <link rel="stylesheet" type="text/css" href="estilo.css"/>
         <title>eCup</title>
     </h:head>
     <h:body>
-        <h4>eCup 2017 ISS2017</h4>
+        <header>
+            <h1>e-Cup</h1>
+        </header>
+        <nav>
+            <ul>
+                <li class="dropdown">Cadastro
+                    <ul>
+                        <li class="dropdown-content">Pessoa
+                            <ul>
+                                <li>Integrante Arbrital</li>
+                                <li>Integrante Equipe</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-content">Equipe</li>
+                        <li class="dropdown-content">Modalidade
+                            <ul>
+                                <li>Modalidade</li>
+                                <li>Tempo</li>
+                                <li>Ponto</li>
+                                <li>Punição</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-content">Regulamento</li>
+                    </ul>
+                </li>
+                <li class="dropdown">Operações
+                    <ul>
+                        <li class="dropdown-content">Liga</li>
+                        <li class="dropdown-content">Partida/Súmula</li>
+                    </ul>
+                </li>
+                <li class="dropdown">Relatórios
+                    <ul>
+                        <li class="dropdown-content">Artilheiro</li>
+                        <li class="dropdown-content">Partida</li>
+                        <li class="dropdown-content">Tabela de Classificação</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
         <h:form>
+            
              <p:commandButton value="Controle de usuários" action="#{usuarioMBean.goToPageControleUsuario()}"   process="@this" icon="ui-icon-check" />
             
         </h:form>
