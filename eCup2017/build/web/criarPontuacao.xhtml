@@ -8,6 +8,46 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <header>
+            <h1>e-Cup</h1>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="">Cadastro</a>
+                    <ul class="submenu-1">
+                        <li><a href="">Pessoa</a>
+                            <ul class="submenu-2">
+                                <li><a href="" value="Controle de usuários" action="#{usuarioMBean.goToPageControleUsuario()}">Arbrital</a></li>
+                                <li><a href="">Equipe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Equipe</a></li>
+                        <li><a href="">Modalidade</a>
+                            <ul class="submenu-2">
+                                <li><a href="">Modalidade</a></li>
+                                <li><a href="">Tempo</a></li>
+                                <li><a href="">Ponto</a></li>
+                                <li><a href="">Punição</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Regulamento</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Operações</a>
+                    <ul class="submenu-1">
+                        <li><a href="">Liga</a></li>
+                        <li><a href="">Partida/Súmula</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Relatórios</a>
+                    <ul class="submenu-1">
+                        <li><a href="">Artilheiro</a></li>
+                        <li><a href="">Partida</a></li>
+                        <li><a href="">Classificação</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
         <h2>Informe os dados da pontuação que deseja cadastrar</h2>
         
         <h:form>

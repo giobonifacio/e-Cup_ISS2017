@@ -7,24 +7,30 @@
         <f:event type="preRenderView" listener="#{loginMBean.onPageLoad}"/>
     </f:metadata>
     <h:head>
+        <link rel="stylesheet" type="text/css" href="estilo.css"/>
         <title>e-Cup 2017</title>
     </h:head>
     <h:body>
-    	<h3>Efetue login para acessar e-Cup 2017</h3>
+    	<header>
+            <h1>e-Cup</h1>
+        </header>
             
-        <h:form>
-            <h:panelGrid columns="6" cellpadding="5">
-                <h:outputLabel for="inputUsuario" value="Usuário:" style="font-weight:bold" />
-                <p:inputText id="inputUsuario" value="#{loginMBean.usuario.usuario}" />
-                <p:password id="inputSenha" value="#{loginMBean.usuario.senha}"  />
-                <p:commandButton value="Logar" action="#{loginMBean.logar()}" icon="ui-icon-check" />
+        <h:form class="login">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="inputUsuario" value="Usuário:" style="width: 60px; font-weight:bold; font-size: 20px" />
+                <p:inputText id="inputUsuario" value="#{loginMBean.usuario.usuario}" style="width: 150px"/>
+                
+                <h:outputLabel for="inputSenha" value="Senha:" style="width: 60px; font-weight: bold; font-size: 20px" />
+                <p:password id="inputSenha" value="#{loginMBean.usuario.senha}"  style="width: 150px"/>
+                
+                <p:commandButton value="Logar" action="#{loginMBean.logar()}" icon="ui-icon-check" style="left: 175px"/>
                 <h:outputText id="display" value="#{basicView.text}" />
             </h:panelGrid>
             
-                    
-        <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
         </h:form>
-
+        <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
+                
+        
     </h:body>
   
 </html>
