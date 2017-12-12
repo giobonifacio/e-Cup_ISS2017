@@ -29,7 +29,7 @@ public class GenericDAO<T> {
 	public GenericDAO() {
 		this.classe = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
-
+        
 	public void salvar(T entity) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transacao = null;
