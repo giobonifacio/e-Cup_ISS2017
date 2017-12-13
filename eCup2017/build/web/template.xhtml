@@ -1,7 +1,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     
     <h:head>
         <meta http-equiv="Content-Type" 
@@ -41,6 +42,7 @@
                     <ul class="submenu-1">
                         <li><a href="">Liga</a></li>
                         <li><a href="">Partida/Súmula</a></li>
+                        <li><p:commandButton id="menuItem" value="Controle de Usuários" action="#{usuarioMBean.goToPageControleUsuario()}" process="@this" /></li>
                     </ul>
                 </li>
                 <li><a href="">Relatórios</a>

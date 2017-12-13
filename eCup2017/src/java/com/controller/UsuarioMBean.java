@@ -3,6 +3,7 @@ package com.controller;
 
 import com.dao.UsuarioDAO;
 import com.model.Usuario;
+import com.util.SessionUtils;
 import com.util.Utils;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,10 +55,11 @@ public class UsuarioMBean implements Serializable{
         
          try {
                 if (usuario.getId() == null) {
-                      usuarioDAO.salvar(usuario);
-                    return "login";
+                    usuarioDAO.salvar(usuario);
+                    String usuarioLogado = SessionUtils.getUserName();
+                    if (Utils.isNullOrEmpty(usuarioLogado)) 
+                         return "login";
                 }
-                  
                 else
                     usuarioDAO.alterar(usuario);
                 return goToPageControleUsuario();
@@ -78,14 +80,14 @@ public class UsuarioMBean implements Serializable{
     public String goToPageControleUsuario() {
     return "usuarios";
     }
-    
+
     public void carregaListaUsuarios() {
         setUsuarios(usuarioDAO.listAll());
     }
     
     public String removeUsuario(Usuario user) {
         usuarioDAO.excluir(user);
-        return goToPageControleUsuario();
+        return "index";
     }
     
     public String goToPageCriarUsuario() {

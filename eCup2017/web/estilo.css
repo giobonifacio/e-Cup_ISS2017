@@ -107,3 +107,8 @@ ul.menu{ float:left;
 #content{margin-left: 3%;
        margin-right: 3%;
        margin-top: 80px;}
+
+#menuItem{
+    background:#999;
+    color:#fff;
+}

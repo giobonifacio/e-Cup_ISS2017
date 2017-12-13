@@ -13,7 +13,7 @@
             </ui:define>
             
             <ui:define name="content">
-                <h:form>
+                  <h:form>
                     <p:dataTable id="dataTableUsers" var="user" value="#{usuarioMBean.usuarios}"  style="margin-bottom:20px">
                              <f:facet name="header">
                                  Controle de Usuários
@@ -44,8 +44,7 @@
                      <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
                      <br/> <br/> <br/>
                      <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
-
-                </h:form>
+                 </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
