@@ -1,87 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <f:metadata>
-        <f:event type="preRenderView" listener="#{usuarioMBean.carregaListaUsuarios}"/>
-    </f:metadata>
-    <h:head>
-        <title>e-Cup 2017</title>
-    </h:head>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
     <h:body>
-        <header>
-            <h1>e-Cup</h1>
-        </header>
-        <nav>
-            <ul class="menu">
-                <li><a href="">Cadastro</a>
-                    <ul class="submenu-1">
-                        <li><a href="">Pessoa</a>
-                            <ul class="submenu-2">
-                                <li><a href="" value="Controle de usuários" action="#{usuarioMBean.goToPageControleUsuario()}">Arbrital</a></li>
-                                <li><a href="">Equipe</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Equipe</a></li>
-                        <li><a href="">Modalidade</a>
-                            <ul class="submenu-2">
-                                <li><a href="">Modalidade</a></li>
-                                <li><a href="">Tempo</a></li>
-                                <li><a href="">Ponto</a></li>
-                                <li><a href="">Punição</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Regulamento</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Operações</a>
-                    <ul class="submenu-1">
-                        <li><a href="">Liga</a></li>
-                        <li><a href="">Partida/Súmula</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Relatórios</a>
-                    <ul class="submenu-1">
-                        <li><a href="">Artilheiro</a></li>
-                        <li><a href="">Partida</a></li>
-                        <li><a href="">Classificação</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <h:form>
-    	   <p:dataTable id="dataTableUsers" var="user" value="#{usuarioMBean.usuarios}"  style="margin-bottom:20px">
-                    <f:facet name="header">
-                        Controle de Usuários
-                    </f:facet>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:event type="preRenderView" listener="#{usuarioMBean.carregaListaUsuarios}"/>
+                </f:metadata>
+            </ui:define>
+            
+            <ui:define name="content">
+                <h:form>
+                    <p:dataTable id="dataTableUsers" var="user" value="#{usuarioMBean.usuarios}"  style="margin-bottom:20px">
+                             <f:facet name="header">
+                                 Controle de Usuários
+                             </f:facet>
 
-                    <p:column headerText="Id">
-                        <h:outputText value="#{user.id}" />
-                    </p:column>
+                             <p:column headerText="Id">
+                                 <h:outputText value="#{user.id}" />
+                             </p:column>
 
-                    <p:column headerText="Usuário">
-                        <h:outputText value="#{user.usuario}" />
-                    </p:column>
+                             <p:column headerText="Usuário">
+                                 <h:outputText value="#{user.usuario}" />
+                             </p:column>
 
-                    <p:column headerText="Senha">
-                        <h:outputText value="#{user.senha}" />
-                    </p:column>
+                             <p:column headerText="Senha">
+                                 <h:outputText value="#{user.senha}" />
+                             </p:column>
 
-                    <p:column style="width:92px">
-                       <p:commandButton id="editUsuario" value="Editar" action="#{usuarioMBean.goToPageEditarUsuario(user)}" />
-                    </p:column>
-                    
-                     <p:column style="width:120px">
-                         <f:ajax>
-                              <p:commandButton id="removeUsuario" value="Remover" action="#{usuarioMBean.removeUsuario(user)}" />
-                         </f:ajax>
-                    </p:column>
-                </p:dataTable>
-            <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
-            <br/> <br/> <br/>
-            <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
-        </h:form>
+                             <p:column style="width:92px">
+                                <p:commandButton id="editUsuario" value="Editar" action="#{usuarioMBean.goToPageEditarUsuario(user)}" />
+                             </p:column>
+
+                              <p:column style="width:120px">
+                                  <f:ajax>
+                                       <p:commandButton id="removeUsuario" value="Remover" action="#{usuarioMBean.removeUsuario(user)}" />
+                                  </f:ajax>
+                             </p:column>
+                         </p:dataTable>
+                     <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
+                     <br/> <br/> <br/>
+                     <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
-  
 </html>

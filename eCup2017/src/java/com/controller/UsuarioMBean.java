@@ -78,7 +78,6 @@ public class UsuarioMBean implements Serializable{
     public String goToPageControleUsuario() {
     return "usuarios";
     }
-
     
     public void carregaListaUsuarios() {
         setUsuarios(usuarioDAO.listAll());

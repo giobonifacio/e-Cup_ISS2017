@@ -103,3 +103,7 @@ ul.menu{ float:left;
 .submenu-2 a{color:#fff;}
 
 .submenu-2 li:hover > a{ background:#333; }
+
+#content{margin-left: 3%;
+       margin-right: 3%;
+       margin-top: 80px;}
