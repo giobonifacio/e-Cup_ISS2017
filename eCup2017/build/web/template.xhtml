@@ -18,38 +18,38 @@
         </header>
         <nav>
             <ul class="menu">
-                <li><a href="">Cadastro</a>
+                <li><a>Cadastro</a>
                     <ul class="submenu-1">
-                        <li><a href="">Pessoa</a>
+                        <li><a>Pessoa</a>
                             <ul class="submenu-2">
-                                <li><a href="" value="Controle de usuários" action="#{usuarioMBean.goToPageControleUsuario()}">Arbrital</a></li>
-                                <li><a href="">Equipe</a></li>
+                                <li><p:link outcome="criarPessoaArbitral" value="Arbrital"/></li>
+                                <li><p:link outcome="criarPessoaEquipe" value="Equipe"/></li>
                             </ul>
                         </li>
-                        <li><a href="">Equipe</a></li>
-                        <li><a href="">Modalidade</a>
+                        <li><p:link outcome="criarEquipe" value="Equipe"/></li>
+                        <li><a>Modalidade</a>
                             <ul class="submenu-2">
-                                <li><a href="">Modalidade</a></li>
-                                <li><a href="">Tempo</a></li>
-                                <li><a href="">Ponto</a></li>
-                                <li><a href="">Punição</a></li>
+                                <li><p:link outcome="criarModalidade" value="Modalidade"/></li>
+                                <li><p:link outcome="criarTempo" value="Tempo"/></li>
+                                <li><p:link outcome="criarPontuacao" value="Ponto"/></li>
+                                <li><p:link outcome="criarPunicao" value="Punição"/></li>
                             </ul>
                         </li>
-                        <li><a href="">Regulamento</a></li>
+                        <li><p:link outcome="criarRegulamento" value="Regulamento"/></li>
                     </ul>
                 </li>
-                <li><a href="">Operações</a>
+                <li><a>Operações</a>
                     <ul class="submenu-1">
-                        <li><a href="">Liga</a></li>
-                        <li><a href="">Partida/Súmula</a></li>
-                        <li><p:commandButton id="menuItem" value="Controle de Usuários" action="#{usuarioMBean.goToPageControleUsuario()}" process="@this" /></li>
+                        <li><p:link outcome="liga" value="Liga"/></li>
+                        <li><p:link outcome="sumula" value="Partida/Súmula"/></li>
+                        <li><p:link outcome="usuarios" value="Usuários"/></li>
                     </ul>
                 </li>
-                <li><a href="">Relatórios</a>
+                <li><a>Relatórios</a>
                     <ul class="submenu-1">
-                        <li><a href="">Artilheiro</a></li>
-                        <li><a href="">Partida</a></li>
-                        <li><a href="">Classificação</a></li>
+                        <li><p:link outcome="relatorioArtilheiro" value="Artilheiro"/></li>
+                        <li><p:link outcome="relatorioPartida" value="Partida"/></li>
+                        <li><p:link outcome="relatorioClassificacao" value="Classificação"/></li>
                     </ul>
                 </li>
             </ul>
