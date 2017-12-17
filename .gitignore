@@ -4,3 +4,7 @@ eCup2017/dist/eCup2017.war
 eCup2017/build/web/WEB-INF/glassfish-web.xml
 *.properties
 eCup2017/nbproject/private/private.xml
+eCup2017/nbproject/private/private.properties
+eCup2017/build/web/WEB-INF/glassfish-web.xml
+eCup2017/nbproject/private/private.xml
+eCup2017/build/web/WEB-INF/glassfish-web.xml
