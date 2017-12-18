@@ -16,3 +16,8 @@ eCup2017/build/web/WEB-INF/classes/com/model/Pessoa.class
 *.class
 *.properties
 eCup2017/nbproject/private/private.xml
+eCup2017/build/test/classes/.netbeans_automatic_build
+eCup2017/build/test/classes/.netbeans_update_resources
+eCup2017/build/web/WEB-INF/classes/com/controller/LoginMBean.class
+eCup2017/nbproject/private/private.properties
+eCup2017/nbproject/project.properties

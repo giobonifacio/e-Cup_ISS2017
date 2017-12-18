@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
    
     <h:body>
         <ui:composition template="./template.xhtml">
@@ -11,6 +12,45 @@
               <ui:define name="content">
                   <h:form>
                        <h2>Cadastro de Regulamento</h2> <br/>
+                       <h:panelGrid columns="3" cellpadding="5">
+                           <p:outputLabel for="descricao" value="Descrição " />
+                           <p:inputText id="descricao" value="#{regulamentoMBean.regulamento.descricao}"/>  <br/><br/>
+
+                           
+                           
+                           <h:outputLabel for="modalidade" value="Modalidade" />
+                           <p:selectOneMenu id="modalidade" value="#{regulamentoMBean.regulamento.modalidade}" label="Modalidades"
+                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                <f:selectItems value="#{regulamentoMBean.todasModalidades}" />
+                           </p:selectOneMenu>  <br/><br/>
+                           
+                             <h:outputLabel for="pontos" value="Pontos" />
+                           <p:selectOneMenu id="pontos" value="#{regulamentoMBean.regulamento.ponto}" label="Pontos"
+                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                               <f:selectItems value="#{regulamentoMBean.todasPontos}" />
+                           </p:selectOneMenu>  <br/><br/>
+                           
+                           
+                             <h:outputLabel for="punicoes" value="Punições" />
+                             <p:selectOneMenu id="punicoes" value="#{regulamentoMBean.regulamento.punicao}" label="Punições"
+                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                               <f:selectItems value="#{regulamentoMBean.todasPunicoes}" />
+                           </p:selectOneMenu>  <br/><br/>
+                           
+                           
+                             <h:outputLabel for="tempo" value="Tempo" />
+                             <p:selectOneMenu id="tempo" value="#{regulamentoMBean.regulamento.tempo}" label="Tempo"
+                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                 <f:selectItems value="#{regulamentoMBean.todosTempos}" />
+                           </p:selectOneMenu>  <br/><br/>
+                           
+                           
+                             <p:commandButton value="Salvar" action="#{regulamentoMBean.criar()}" icon="ui-icon-check" />
+                       </h:panelGrid>
+                       
+                       
+                        <br/> <br/> <br/>
+                    <p:commandButton value="Voltar" action="regulamentos" process="@this" icon="ui-icon-check" />
                   </h:form>
               </ui:define>
         </ui:composition>

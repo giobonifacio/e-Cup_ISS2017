@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:event type="preRenderView" listener="#{regulamentoMBean.carregaListaRegulamentos}"/>
+                </f:metadata>
+            </ui:define>
+            
+            <ui:define name="content">
+                  <h:form>
+                    <p:dataTable id="dataTableUsers" var="regulamento" value="#{regulamentoMBean.regulamentos}"  style="margin-bottom:20px">
+                             <f:facet name="header">
+                                 Controle de Regulamentos
+                             </f:facet>
+
+                             <p:column headerText="Id">
+                                 <h:outputText value="#{regulamento.id}" />
+                             </p:column>
+                        
+                             <p:column headerText="Descrição">
+                                 <h:outputText value="#{regulamento.descricao}" />
+                             </p:column>
+                        
+
+                             <p:column style="width:92px">
+                                <p:commandButton id="editUsuario" value="Editar" action="#{regulamentoMBean.goToPageEditarRegulamento(regulamento)}" />
+                             </p:column>
+
+                              <p:column style="width:120px">
+                                  <f:ajax>
+                                       <p:commandButton id="removeUsuario" value="Remover" action="#{regulamentoMBean.removeRegulamento(regulamento)}" />
+                                  </f:ajax>
+                             </p:column>
+                         </p:dataTable>
+                     <p:commandButton value="Criar Regulamento" action="criarRegulamento" process="@this" icon="ui-icon-check" />
+                     <br/> <br/> <br/>
+                     <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
+                 </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

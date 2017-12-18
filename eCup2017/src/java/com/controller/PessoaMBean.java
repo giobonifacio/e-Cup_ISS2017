@@ -51,16 +51,13 @@ public class PessoaMBean implements Serializable{
     }
     
     public String criar()  {
-        if (false) {
-            return "erro";
-        }
+     
+        if (Utils.isNullOrEmpty(pessoa.getNome()))
+             return "erro";
         
          try {
                 if (pessoa.getId() == null) {
                     pessoaDAO.salvar(pessoa);
-                    String usuarioLogado = SessionUtils.getUserName();
-                    if (Utils.isNullOrEmpty(usuarioLogado)) 
-                         return "login";
                 }
                 else
                     pessoaDAO.alterar(pessoa);
@@ -80,7 +77,7 @@ public class PessoaMBean implements Serializable{
     }
     
     public String goToPageControlePessoa() {
-    return "usuarios";
+    return "index";
     }
 
     public void carregaListaPessoas() {
@@ -99,7 +96,12 @@ public class PessoaMBean implements Serializable{
     
     public String goToPageEditarPessoa(Pessoa user) {
         this.pessoa = user;
-        return "criarPessoa";
+        return "criarPessoaEquipe";
+    }
+    
+     public String goToPageEditarPessoaArbitral(Pessoa user) {
+        this.pessoa = user;
+        return "criarPessoaArbitral";
     }
         
     /**
