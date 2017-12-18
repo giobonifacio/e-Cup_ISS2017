@@ -8,3 +8,11 @@ eCup2017/nbproject/private/private.properties
 eCup2017/build/web/WEB-INF/glassfish-web.xml
 eCup2017/nbproject/private/private.xml
 eCup2017/build/web/WEB-INF/glassfish-web.xml
+eCup2017/build/web/gfv3ee6.dpf
+eCup2017/build/web/gfv3ee6.dpf
+eCup2017/build/web/WEB-INF/classes/com/controller/PessoaMBean.class
+eCup2017/build/web/WEB-INF/classes/com/dao/PessoaDAO.class
+eCup2017/build/web/WEB-INF/classes/com/model/Pessoa.class
+*.class
+*.properties
+eCup2017/nbproject/private/private.xml
