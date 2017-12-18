@@ -54,22 +54,19 @@ public class RegulamentoMBean implements Serializable{
     }
     
     public String criar()  {
-        if (false) {
-            return "erro";
-        }
+        
+         if (Utils.isNullOrEmpty(pessoa.getNome()))
+             return "erro";
         
          try {
                 if (regulamento.getId() == null) {
                     regulamentoDAO.salvar(regulamento);
-                    String usuarioLogado = SessionUtils.getUserName();
-                    if (Utils.isNullOrEmpty(usuarioLogado)) 
-                         return "login";
                 }
                 else
                     regulamentoDAO.alterar(regulamento);
                 return goToPageControleRegulamento();
             } catch (Exception e) {
-                System.err.println("Não foi possível inserir usuário." + e);
+                System.err.println("Não foi possível inserir regulamento." + e);
             }
        return "erro";
     }
