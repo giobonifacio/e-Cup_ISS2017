@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:event type="preRenderView" listener="#{tempoMBean.carregaListaTempos}"/>
+                </f:metadata>
+            </ui:define>
+            
+            <ui:define name="content">
+                  <h:form>
+                    <p:dataTable id="dataTableUsers" var="tempo" value="#{tempoMBean.tempos}"  style="margin-bottom:20px">
+                             <f:facet name="header">
+                                 Controle de Tempo
+                             </f:facet>
+
+                             <p:column headerText="Id">
+                                 <h:outputText value="#{tempo.id}" />
+                             </p:column>
+                        
+                             <p:column headerText="Descricao">
+                                 <h:outputText value="#{tempo.descricao}" />
+                             </p:column>
+                        
+                            <p:column headerText="Quantidade de Periodo">
+                                <h:outputText value="#{tempo.qtddPeriodo}" />
+                             </p:column>
+
+                             <p:column headerText="Duração do Periodo">
+                                 <h:outputText value="#{tempo.duracaoPeriodo}" />
+                             </p:column>
+                        
+                             <p:column headerText="Quantidade de Extra">
+                                 <h:outputText value="#{tempo.qtddExtra}" />
+                             </p:column>
+
+                             <p:column headerText="Duração do Extra">
+                                 <h:outputText value="#{tempo.duracaoExtra}" />
+                             </p:column>
+                        
+                             <p:column headerText="Quantidade de Timeout">
+                                 <h:outputText value="#{tempo.qtddTimeout}" />
+                             </p:column>
+                        
+                             <p:column headerText="Duração do Timeout">
+                                 <h:outputText value="#{tempo.duracaoTimeout}" />
+                             </p:column>
+
+                             <p:column style="width:92px">
+                                <p:commandButton id="editUsuario" value="Editar" action="#{tempoMBean.goToPageEditarTempo(tempo)}" />
+                             </p:column>
+
+                              <p:column style="width:120px">
+                                  <f:ajax>
+                                       <p:commandButton id="removeUsuario" value="Remover" action="#{tempoMBean.removeTempo(tempo)}" />
+                                  </f:ajax>
+                             </p:column>
+                         </p:dataTable>
+                     <p:commandButton value="Criar Tempo" action="criarTempo" process="@this" icon="ui-icon-check" />
+                     <br/> <br/> <br/>
+                     <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
+                 </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

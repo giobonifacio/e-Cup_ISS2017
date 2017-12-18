@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:event type="preRenderView" listener="#{pontoMBean.carregaListaPontos}"/>
+                </f:metadata>
+            </ui:define>
+            
+            <ui:define name="content">
+                  <h:form>
+                    <p:dataTable id="dataTableUsers" var="ponto" value="#{pontoMBean.pontos}"  style="margin-bottom:20px">
+                             <f:facet name="header">
+                                 Controle de Pontuação
+                             </f:facet>
+
+                             <p:column headerText="Id">
+                                 <h:outputText value="#{ponto.id}" />
+                             </p:column>
+                        
+                             <p:column headerText="Nome">
+                                 <h:outputText value="#{ponto.descricao}" />
+                             </p:column>
+                        
+                             <p:column headerText="Valor">
+                                <h:outputText value="#{ponto.valor}" />
+                             </p:column>
+
+                             <p:column style="width:92px">
+                                <p:commandButton id="editUsuario" value="Editar" action="#{pontoMBean.goToPageEditarPonto(ponto)}" />
+                             </p:column>
+
+                              <p:column style="width:120px">
+                                  <f:ajax>
+                                       <p:commandButton id="removeUsuario" value="Remover" action="#{pontoMBean.removePonto(ponto)}" />
+                                  </f:ajax>
+                             </p:column>
+                         </p:dataTable>
+                     <p:commandButton value="Criar Pontuação" action="criarPontuacao" process="@this" icon="ui-icon-check" />
+                     <br/> <br/> <br/>
+                     <p:commandButton value="Voltar" action="index" process="@this" icon="ui-icon-check" />
+                 </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

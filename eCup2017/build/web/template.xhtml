@@ -1,0 +1,64 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" 
+              content="text/html; charset=UTF-8" />
+          <link rel="stylesheet" type="text/css" href="estilo.css"/>
+        <title>e-Cup</title>
+        <ui:insert name="metadata"></ui:insert>
+    </h:head>
+    
+    <h:body>
+            <header>
+            <h1>e-Cup</h1>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a>Cadastro</a>
+                    <ul class="submenu-1">
+                        <li><a>Pessoa</a>
+                            <ul class="submenu-2">
+                                <li><p:link outcome="pessoasArbitral" value="Arbrital"/></li>
+                                <li><p:link outcome="pessoasEquipe" value="Equipe"/></li>
+                            </ul>
+                        </li>
+                        <li><p:link outcome="criarEquipe" value="Equipe"/></li>
+                        <li><a>Modalidade</a>
+                            <ul class="submenu-2">
+                                <li><p:link outcome="criarModalidade" value="Modalidade"/></li>
+                                <li><p:link outcome="criarTempo" value="Tempo"/></li>
+                                <li><p:link outcome="criarPontuacao" value="Ponto"/></li>
+                                <li><p:link outcome="criarPunicao" value="Punição"/></li>
+                            </ul>
+                        </li>
+                        <li><p:link outcome="regulamentos" value="Regulamento"/></li>
+                    </ul>
+                </li>
+                <li><a>Operações</a>
+                    <ul class="submenu-1">
+                        <li><p:link outcome="liga" value="Liga"/></li>
+                        <li><p:link outcome="sumula" value="Partida/Súmula"/></li>
+                        <li><p:link outcome="usuarios" value="Usuários"/></li>
+                    </ul>
+                </li>
+                <li><a>Relatórios</a>
+                    <ul class="submenu-1">
+                        <li><p:link outcome="relatorioArtilheiro" value="Artilheiro"/></li>
+                        <li><p:link outcome="relatorioPartida" value="Partida"/></li>
+                        <li><p:link outcome="relatorioClassificacao" value="Classificação"/></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="left">
+             <ui:insert name="left"></ui:insert>
+        </div>
+        <div id="content" class="left_content">
+             <ui:insert name="content"></ui:insert>
+        </div>
+    </h:body>
+</html>

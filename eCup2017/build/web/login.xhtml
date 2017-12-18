@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{loginMBean.onPageLoad}"/>
+    </f:metadata>
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="estilo.css"/>
+        <title>e-Cup 2017</title>
+    </h:head>
+    <h:body>
+    	<header>
+            <h1>e-Cup</h1>
+        </header>
+            
+        <h:form class="login">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="inputUsuario" value="Usuário:" style="width: 60px; font-weight:bold; font-size: 20px" />
+                <p:inputText id="inputUsuario" value="#{loginMBean.usuario.usuario}" style="width: 150px"/>
+                
+                <h:outputLabel for="inputSenha" value="Senha:" style="width: 60px; font-weight: bold; font-size: 20px" />
+                <p:password id="inputSenha" value="#{loginMBean.usuario.senha}"  style="width: 150px"/>
+                
+                <p:commandButton value="Logar" action="#{loginMBean.logar()}" icon="ui-icon-check" style="left: 175px"/>
+                <h:outputText id="display" value="#{basicView.text}" />
+            </h:panelGrid>
+            
+        </h:form>
+        <p:commandButton value="Criar Usuário" action="#{usuarioMBean.goToPageCriarUsuario()}" process="@this" icon="ui-icon-check" />
+                
+        
+    </h:body>
+  
+</html>

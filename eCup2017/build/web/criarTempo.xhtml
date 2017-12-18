@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            
+              <ui:define name="content">
+                  <h:form>
+                       <h2>Cadastro de Pessoa Para Equipe</h2> <br/>
+                       <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel for="descricao" value="Descrição: " />
+                            <p:inputText id="descricao" value="#{tempoMBean.tempo.descricao}"/>  <br/><br/>
+
+                             <p:outputLabel for="qtddePeriodo" value="Quantidade de Periodos: " />
+                             <p:inputText id="qtddePeriodo" value="#{tempoMBean.tempo.qtddPeriodo}"/>  <br/><br/>
+
+                            <p:outputLabel for="duracaoPeriodo" value="Duração Periodo: " />
+                            <p:inputText id="duracaoPeriodo" value="#{tempoMBean.tempo.duracaoPeriodo}"/>  <br/><br/>
+
+                            <p:outputLabel for="qtddExtra" value="Quantidade Extra:" />
+                            <p:inputText id="qtddExtra" value="#{tempoMBean.tempo.qtddExtra}" /> <br/><br/>
+
+                            <p:outputLabel for="duracaoExtra" value="Duração Extra: " />
+                            <p:inputText id="duracaoExtra" value="#{tempoMBean.tempo.duracaoExtra}"/>  <br/><br/>
+
+                            <p:outputLabel for="qtddTimeout" value="Quantidade Timeout: " />
+                            <p:inputText id="qtddTimeout" value="#{tempoMBean.tempo.qtddTimeout}"/>  <br/><br/>
+
+                            <p:outputLabel for="duracaoTimeout" value="Duração Timeout:" />
+                            <p:inputText id="duracaoTimeout" value="#{tempoMBean.tempo.duracaoTimeout}"/>  <br/><br/>
+                                                     
+                             <p:commandButton value="Salvar" action="#{tempoMBean.criar()}" icon="ui-icon-check" />
+                       </h:panelGrid>
+                       
+                        <br/> <br/> <br/>
+                    <p:commandButton value="Voltar" action="tempos" process="@this" icon="ui-icon-check" />
+                  </h:form>
+              </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

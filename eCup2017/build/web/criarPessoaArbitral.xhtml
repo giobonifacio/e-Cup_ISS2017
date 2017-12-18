@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            
+              <ui:define name="content">
+                  <h:form>
+                       <h2>Cadastro de Pessoa Arbitral</h2> <br/>
+                       <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel for="nome" value="Nome " />
+                            <p:inputText id="nome" value="#{pessoaMBean.pessoa.nome}"/>  <br/><br/>
+
+                             <p:outputLabel for="dataNascimento" value="Data de Nascimento " />
+                             <p:calendar id="dataNascimento" value="#{pessoaMBean.pessoa.dataNascimento}" mask="99/99/99"/>  <br/><br/>
+
+                            <p:outputLabel for="rg" value="RG " />
+                            <p:inputMask id="rg" value="#{pessoaMBean.pessoa.rg}" mask="99.999.999-99"/>  <br/><br/>
+
+                            <p:outputLabel for="sexo" value="Sexo" />
+                            <p:selectOneRadio id="sexo" value="#{pessoaMBean.pessoa.sexo}">
+                                <f:selectItem itemLabel="Feminino" itemValue="feminino" />
+                                <f:selectItem itemLabel="Masculino" itemValue="masculino" />
+                            </p:selectOneRadio>  <br/><br/>
+
+                            <p:outputLabel for="telefone" value="Telefone " />
+                            <p:inputMask id="telefone" value="#{pessoaMBean.pessoa.telefone}" mask="(99)99999-9999"/>  <br/><br/>
+
+                            <p:outputLabel for="email" value="Email " />
+                            <p:inputText id="email" value="#{pessoaMBean.pessoa.email}"/>  <br/><br/>
+
+                            <p:outputLabel for="endereco" value="Endereço " />
+                            <p:inputText id="endereco" value="#{pessoaMBean.pessoa.endereco}"/>  <br/><br/>
+
+                            <p:outputLabel for="tipo" value="Tipo de Pessoa " />
+                            <p:selectOneRadio id="tipo" value="#{pessoaMBean.pessoa.tipo}">
+                                <f:selectItem itemLabel="Árbitro" itemValue="arbitro" />
+                                <f:selectItem itemLabel="Apontador" itemValue="apontador" />
+                                <f:selectItem itemLabel="Cronometrista" itemValue="cronometrista" />
+                                <f:selectItem itemLabel="Delegado" itemValue="delegado" />
+                                <f:selectItem itemLabel="Fiscal" itemValue="fiscal" />
+                            </p:selectOneRadio>  <br/><br/>
+                           
+                             <p:commandButton value="Salvar" action="#{pessoaMBean.criar()}" icon="ui-icon-check" />
+                       </h:panelGrid>
+                       
+                        <br/> <br/> <br/>
+                    <p:commandButton value="Voltar" action="pessoasArbitral" process="@this" icon="ui-icon-check" />
+                  </h:form>
+              </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
