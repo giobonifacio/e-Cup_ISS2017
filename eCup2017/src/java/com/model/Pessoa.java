@@ -47,6 +47,8 @@ public class Pessoa implements Serializable {
     
     @Column(name = "endereco")  
     private String endereco;
+    
+    private String tipo;
             
     public String getEndereco() {
         return endereco;
@@ -111,4 +113,18 @@ public class Pessoa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }    
+
+    public String getClassePessoa() {
+        return "pessoa";
+    }
+    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public String getTipo() {
+        return this.tipo;
+    }
+
 }
+
