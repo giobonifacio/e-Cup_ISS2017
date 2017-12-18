@@ -62,6 +62,7 @@ Contributor(s):
                 <mapping class="com.model.Tecnico" />
                 <mapping class="com.model.Tempo" />
                 <mapping class="com.model.Equipe" />
+                <mapping class="com.model.Regulamento" />
                 
 	</session-factory>
 </hibernate-configuration>
